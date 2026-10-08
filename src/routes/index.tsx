@@ -309,8 +309,8 @@ function Index() {
             <img
               src={logoAsset.url}
               alt="Logo ANNA Memoire"
-              width={1254}
-              height={1254}
+              width={852}
+              height={873}
               className="h-28 w-28 border border-primary-foreground/20 object-cover"
             />
             <Wordmark className="text-3xl tracking-[0.1em]" />
