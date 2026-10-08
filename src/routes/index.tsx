@@ -1,5 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import hero from "@/assets/hero.jpg";
+import logoAsset from "@/assets/anna-memoire-logo.png.asset.json";
+
+const INSTAGRAM = "https://www.instagram.com/byannamemoire/";
+const WHATSAPP = "https://wa.me/5511981459124?text=Quero%20saber%20mais";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -50,7 +54,7 @@ const fotografia: { group: string; pkgs: Pkg[] }[] = [
 ];
 
 const social: Pkg[] = [
-  { name: "Plano Mensal 1", items: ["1 Reel por mês", "1 carrossel", "3 posts", "12 Stories"], price: "R$ 290", },
+  { name: "Plano Mensal 1", items: ["1 Reel por mês", "1 carrossel", "3 posts", "12 Stories"], price: "R$ 290" },
   { name: "Plano Mensal 2", items: ["2 Reels", "2 carrosséis", "5 posts", "15 Stories"], price: "R$ 390", featured: true },
 ];
 
@@ -70,7 +74,17 @@ const nav = [
   { id: "social", label: "Social Media" },
   { id: "branding", label: "Branding" },
   { id: "avulsos", label: "Avulsos" },
+  { id: "trabalhos", label: "Trabalhos" },
 ];
+
+function Wordmark({ className = "" }: { className?: string }) {
+  return (
+    <span className={`font-display font-bold uppercase leading-none ${className}`}>
+      ANNA{" "}
+      <span className="font-medium normal-case italic tracking-normal">Memoire</span>
+    </span>
+  );
+}
 
 function SectionHeader({ n, title, subtitle }: { n: string; title: string; subtitle?: string }) {
   return (
@@ -118,16 +132,30 @@ function Index() {
     <div className="min-h-screen">
       {/* Top bar */}
       <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#top" className="font-display text-2xl font-bold tracking-[0.15em]">ANNA</a>
-          <nav className="hidden gap-8 text-xs font-medium uppercase tracking-[0.2em] md:flex">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4">
+          <a href="#top" className="flex items-center gap-3">
+            <img
+              src={logoAsset.url}
+              alt="Logo ANNA Memoire"
+              width={64}
+              height={64}
+              className="h-9 w-9 object-cover"
+            />
+            <Wordmark className="text-xl tracking-[0.12em]" />
+          </a>
+          <nav className="hidden gap-7 text-xs font-medium uppercase tracking-[0.2em] lg:flex">
             {nav.map((n) => (
               <a key={n.id} href={`#${n.id}`} className="text-muted-foreground transition-colors hover:text-foreground">
                 {n.label}
               </a>
             ))}
           </nav>
-          <a href="#contato" className="border border-foreground px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition-colors hover:bg-primary hover:text-primary-foreground">
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border border-foreground px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition-colors hover:bg-primary hover:text-primary-foreground"
+          >
             Orçamento
           </a>
         </div>
@@ -137,25 +165,44 @@ function Index() {
       <section id="top" className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:py-24">
         <div>
           <p className="animate-fade-up text-xs font-semibold uppercase tracking-[0.3em] text-gold">Serviços & Orçamentos</p>
-          <h1 className="animate-fade-up-delay mt-6 font-display text-7xl font-bold leading-none md:text-9xl">ANNA</h1>
-          <p className="animate-fade-up-delay mt-2 font-display text-2xl italic text-muted-foreground md:text-3xl">
+          <h1 className="animate-fade-up-delay mt-6 font-display text-6xl font-bold leading-[0.95] md:text-8xl">
+            ANNA
+            <span className="block font-medium italic tracking-normal">Memoire</span>
+          </h1>
+          <p className="animate-fade-up-delay mt-4 font-display text-2xl italic text-muted-foreground md:text-3xl">
             conteúdo que faz sua marca ser vista.
           </p>
           <p className="animate-fade-up-delay-2 mt-8 max-w-md leading-relaxed text-muted-foreground">
             Fotografia profissional, gestão de redes sociais e identidade visual — pensados para dar presença e personalidade ao seu negócio.
           </p>
           <div className="animate-fade-up-delay-2 mt-10 flex flex-wrap gap-4">
-            <a href="#fotografia" className="bg-primary px-7 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground transition-opacity hover:opacity-85">
-              Ver pacotes
+            <a
+              href={INSTAGRAM}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary px-7 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground transition-opacity hover:opacity-85"
+            >
+              Conhecer os trabalhos
             </a>
-            <a href="#contato" className="border border-foreground px-7 py-4 text-xs font-semibold uppercase tracking-[0.2em] transition-colors hover:bg-primary hover:text-primary-foreground">
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-foreground px-7 py-4 text-xs font-semibold uppercase tracking-[0.2em] transition-colors hover:bg-primary hover:text-primary-foreground"
+            >
               Fale comigo
             </a>
           </div>
         </div>
-        <div className="animate-fade-up-delay relative">
+        <div className="animate-fade-up-delay relative mx-auto w-full max-w-md">
           <div className="absolute -bottom-4 -left-4 h-full w-full border border-gold" />
-          <img src={hero} alt="Câmera analógica e fotografias sobre linho" width={1600} height={1024} className="relative aspect-[4/5] w-full object-cover" />
+          <img
+            src={logoAsset.url}
+            alt="Logo ANNA Memoire"
+            width={1254}
+            height={1254}
+            className="relative aspect-square w-full object-cover"
+          />
         </div>
       </section>
 
@@ -199,6 +246,37 @@ function Index() {
             ))}
           </div>
         </section>
+
+        <section id="trabalhos" className="scroll-mt-24">
+          <SectionHeader n="05" title="Trabalhos" subtitle="Uma amostra do que já criei" />
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div className="relative">
+              <div className="absolute -top-4 -right-4 h-full w-full border border-gold" />
+              <img
+                src={hero}
+                alt="Câmera analógica e fotografias sobre linho"
+                width={1600}
+                height={1024}
+                className="relative aspect-[4/5] w-full object-cover"
+              />
+            </div>
+            <div>
+              <p className="leading-relaxed text-muted-foreground">
+                Cada projeto começa com uma conversa: entender a sua marca, o seu tom e o que você quer mostrar.
+                A partir daí, fotografo e produzo conteúdo com coerência visual — para que o seu perfil conte uma
+                história só sua.
+              </p>
+              <a
+                href={INSTAGRAM}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-block border border-foreground px-7 py-4 text-xs font-semibold uppercase tracking-[0.2em] transition-colors hover:bg-primary hover:text-primary-foreground"
+              >
+                Ver no Instagram
+              </a>
+            </div>
+          </div>
+        </section>
       </main>
 
       {/* Contato */}
@@ -209,9 +287,35 @@ function Index() {
           <p className="mx-auto mt-6 max-w-lg leading-relaxed opacity-75">
             Valores de lançamento. Consulte disponibilidade e condições — entre em contato para montar o pacote ideal para a sua marca.
           </p>
-          <div className="mx-auto mt-12 h-px w-24 bg-gold" />
-          <p className="mt-12 font-display text-6xl font-bold tracking-[0.1em]">ANNA</p>
-          <p className="mt-2 font-display text-xl italic opacity-70">conteúdo que faz sua marca ser vista.</p>
+          <div className="mt-12 flex flex-wrap justify-center gap-4">
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gold px-7 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground transition-opacity hover:opacity-85"
+            >
+              Falar no WhatsApp
+            </a>
+            <a
+              href={INSTAGRAM}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-primary-foreground/40 px-7 py-4 text-xs font-semibold uppercase tracking-[0.2em] transition-colors hover:border-primary-foreground"
+            >
+              Instagram
+            </a>
+          </div>
+          <div className="mx-auto mt-16 flex flex-col items-center gap-5">
+            <img
+              src={logoAsset.url}
+              alt="Logo ANNA Memoire"
+              width={1254}
+              height={1254}
+              className="h-28 w-28 border border-primary-foreground/20 object-cover"
+            />
+            <Wordmark className="text-3xl tracking-[0.1em]" />
+            <p className="font-display text-lg italic opacity-70">conteúdo que faz sua marca ser vista.</p>
+          </div>
         </div>
       </section>
     </div>
