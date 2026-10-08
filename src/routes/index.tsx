@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import hero from "@/assets/hero.jpg";
-import logoAsset from "@/assets/anna-memoire-logo.png.asset.json";
+import logoAsset from "@/assets/anna-memoire-monogram.png.asset.json";
 
 const INSTAGRAM = "https://www.instagram.com/byannamemoire/";
 const WHATSAPP = "https://wa.me/5511981459124?text=Quero%20saber%20mais";
