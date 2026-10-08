@@ -162,7 +162,7 @@ function Index() {
       </header>
 
       {/* Hero */}
-      <section id="top" className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:py-24">
+      <section id="top" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
         <div>
           <p className="animate-fade-up text-xs font-semibold uppercase tracking-[0.3em] text-gold">Serviços & Orçamentos</p>
           <h1 className="animate-fade-up-delay mt-6 font-display text-6xl font-bold leading-[0.95] md:text-8xl">
@@ -193,16 +193,6 @@ function Index() {
               Fale comigo
             </a>
           </div>
-        </div>
-        <div className="animate-fade-up-delay relative mx-auto w-full max-w-md">
-          <div className="absolute -bottom-4 -left-4 h-full w-full border border-gold" />
-          <img
-            src={logoAsset.url}
-            alt="Logo ANNA Memoire"
-            width={852}
-            height={873}
-            className="relative aspect-square w-full object-cover"
-          />
         </div>
       </section>
 
