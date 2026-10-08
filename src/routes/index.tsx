@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import hero from "@/assets/hero.jpg";
-import logoAsset from "@/assets/anna-memoire-logo.png.asset.json";
+import logoAsset from "@/assets/anna-memoire-monogram.png.asset.json";
 
 const INSTAGRAM = "https://www.instagram.com/byannamemoire/";
 const WHATSAPP = "https://wa.me/5511981459124?text=Quero%20saber%20mais";
@@ -199,8 +199,8 @@ function Index() {
           <img
             src={logoAsset.url}
             alt="Logo ANNA Memoire"
-            width={1254}
-            height={1254}
+            width={852}
+            height={873}
             className="relative aspect-square w-full object-cover"
           />
         </div>
@@ -309,8 +309,8 @@ function Index() {
             <img
               src={logoAsset.url}
               alt="Logo ANNA Memoire"
-              width={1254}
-              height={1254}
+              width={852}
+              height={873}
               className="h-28 w-28 border border-primary-foreground/20 object-cover"
             />
             <Wordmark className="text-3xl tracking-[0.1em]" />
