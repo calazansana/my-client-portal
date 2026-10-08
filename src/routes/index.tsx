@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import hero from "@/assets/hero.jpg";
+import patternAsset from "@/assets/anna-memoire-pattern.png.asset.json";
 import logoAsset from "@/assets/anna-memoire-monogram.png.asset.json";
 
 const INSTAGRAM = "https://www.instagram.com/byannamemoire/";
@@ -253,10 +253,10 @@ function Index() {
             <div className="relative">
               <div className="absolute -top-4 -right-4 h-full w-full border border-gold" />
               <img
-                src={hero}
-                alt="Câmera analógica e fotografias sobre linho"
-                width={1600}
-                height={1024}
+                src={patternAsset.url}
+                alt="Padrão de monogramas ANNA Memoire"
+                width={1080}
+                height={1350}
                 className="relative aspect-[4/5] w-full object-cover"
               />
             </div>
