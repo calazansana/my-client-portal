@@ -199,8 +199,8 @@ function Index() {
           <img
             src={logoAsset.url}
             alt="Logo ANNA Memoire"
-            width={1254}
-            height={1254}
+            width={852}
+            height={873}
             className="relative aspect-square w-full object-cover"
           />
         </div>
